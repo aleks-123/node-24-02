@@ -183,9 +183,11 @@ const studenti = [
 // console.log(studenti[2]);
 // console.log(studenti[3]);
 
-// for (let i = 0; i < studenti.length; i++) {
-//    studenti[i].prosek;
-// }
+for (let i = 0; i < studenti.length; i++) {
+  for (let j = 0; j < studenti.length; j++) {
+    studenti[j].prosek;
+  }
+}
 
 const filtriraniStudenti = studenti
   .filter((student) => student.prosek > 7)
@@ -209,3 +211,84 @@ console.log(zbirNaProsek);
 //? Da se dodade uste eden student so ime Goran prosek 7.3 i grad Delcevo
 //? Da se izbrisghe prviot student vo studenti
 //? Da se nagradat studenti od Skopje i Kumnovo za edna ocenka plus
+
+//! SHALOW COPPY so spread operator
+const obj1 = {
+  zelencuk: 'zelka',
+  ovoshje: 'jabolko',
+  meso: 'pilesko',
+};
+const obj3 = obj1;
+
+const number1 = 2;
+const number2 = 2;
+
+const obj2 = { ...obj1, ...obj3, meso: 'telesko', riba: 'pastrmka' };
+console.log(obj2);
+obj2.meso = 'svinsko';
+
+// console.log('logiranje obj1', obj1);
+//! Array spread operator
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [62, 32, 44, 53];
+const arr3 = [...arr1, ...arr2];
+
+console.log(arr3);
+
+const periferija = {
+  glufcinja: 3,
+  monitori: 2,
+  tastaturi: 1,
+};
+
+const belatehnika = {
+  frizider: 2,
+  toster: 1,
+};
+
+const elektronika = {
+  ...periferija,
+  ...belatehnika,
+};
+
+console.log(elektronika);
+
+//! DESTRUCTION
+const myObject = { produkt: 'Smoki', cena: 500, sostav: 'griz' };
+const { produkt: CelosnoIme, cena: cenaVoDneari, sostav } = myObject;
+
+console.log(CelosnoIme, cenaVoDneari);
+
+// objektive se definaat so {}
+// arraite se definaraat so []
+// inputi na funkcija i poviknvanue na funkcija se definrat so ()
+
+const funkcija = (value1, value2, value3) => {
+  return value1 + value2 + value3;
+};
+
+funkcija('banana', 'mleko', 'cokolado');
+funkcija('malinki', 'voda', 'jagodki');
+funkcija('morkov', 'voda', 'cveklo');
+
+if (true) {
+  var maus = 'logitech';
+}
+
+console.log(maus);
+
+
+// block scope
+
+if() {
+
+}
+
+for() {
+
+}
+//functional scope
+
+
+//! Da se istrazi koja e razlikata pomegju var, let i const
+//! Da se istrazi koja e razlikata pomegju functional scope, global scope i block scope
