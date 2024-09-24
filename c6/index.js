@@ -59,3 +59,4 @@ server.listen(10000, '127.0.0.1', (err) => {
 /ime/goran
 
 // string parno:da, karakteri: 5, soglaski:2, samoglaski: 3
+
