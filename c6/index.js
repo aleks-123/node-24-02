@@ -48,15 +48,14 @@ server.listen(10000, '127.0.0.1', (err) => {
   console.log('Server started on Port 10000');
 });
 
-// Servis koj kje obrabatuva ruti od sledniot tip
+//? Servis koj kje obrabatuva ruti od sledniot tip
 
-/ime/aleksandar
-/ime/pero
-/ime/bojan
-/ime/jovana
-/ime/stanko
-/ime/ivana
-/ime/goran
+// /ime/aleksandar
+// /ime/pero
+// /ime/bojan
+// /ime/jovana
+// /ime/stanko
+// /ime/ivana
+// /ime/goran
 
 // string parno:da, karakteri: 5, soglaski:2, samoglaski: 3
-
