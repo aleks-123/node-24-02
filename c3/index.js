@@ -12,7 +12,8 @@
 //* mongoose, express, dotenv, ejs, morgan...
 
 // --- localni moduli ---/
-// const calculator = require('./calculator.js');
+const calculator = require('./calculator.js');
+
 const { odzemanje } = require('./calculator.js');
 
 console.log(odzemanje(5, 3));
