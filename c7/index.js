@@ -5,6 +5,15 @@ const express = require('express');
 const app = express();
 
 //Rutite imaat parametri i tie se dinamicki ili staticki
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.post('/zdravopost', (req, res) => {
+  console.log(req.body);
+
+  res.send('Zdravo od post metoda');
+});
+
 app.get('/zdravo', (req, res) => {
   const b = 1 + 1;
   res.send(`Zdravo svetu ${b}`);
@@ -38,6 +47,21 @@ app.get('/kalkulator/:op/:a/:b', (req, res) => {
     default:
       return res.send('Nepoznat operator');
   }
+});
+
+app.post('/calculator', (req, res) => {
+  switch (req.body.operacija) {
+    case 'sobiranje':
+      return res.send(`${req.body.a + req.body.b} `);
+    case 'odzemanje':
+      return res.send(`${req.body.a - req.body.b} `);
+    case 'mnozenje':
+      return res.send(`${req.body.a * req.body.b} `);
+    case 'delenje':
+      return res.send(`${req.body.a / req.body.b} `);
+  }
+
+  res.send('Proverka');
 });
 
 app.get('/presmetaj/:name', (req, res) => {
