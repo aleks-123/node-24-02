@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { parse } = require('path');
 
 const parseTemplate = async (template, object = null) => {
   return new Promise((success, fail) => {
@@ -34,7 +35,51 @@ const calculateForce = async (req, res) => {
   res.send(response);
 };
 
+const getCalculator = async (req, res) => {
+  try {
+    const output = await parseTemplate('calculator_form.html');
+    res.send(output);
+  } catch (err) {
+    res.status(500).send('Internal server error');
+  }
+};
+
+const postCalculator = async (req, res) => {
+  try {
+    console.log(req.body);
+    let result = '';
+
+    switch (req.body.op) {
+      case 'sobiranje':
+        result = `${Number(req.body.a) + Number(req.body.b)}`;
+        break;
+      case 'odzemanje':
+        result = `${Number(req.body.a) - Number(req.body.b)}`;
+        break;
+      case 'delenje':
+        result = `${Number(req.body.a) / Number(req.body.b)}`;
+        break;
+      case 'mnozenje':
+        result = `${+req.body.a * +req.body.b}`;
+        break;
+      default:
+        result = 'sendNepoznat operator';
+    }
+
+    let response = await parseTemplate('calculator.html', {
+      data: result,
+      ime: 'Operacija',
+    });
+
+    res.send(response);
+  } catch (err) {
+    res.status(500).send('Internal server error');
+  }
+};
+
 module.exports = {
   bmiCalculator,
   calculateForce,
+  getCalculator,
+  postCalculator,
 };
