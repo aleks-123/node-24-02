@@ -6,6 +6,7 @@
     <title>Studenska Web Stranica</title>
   </head>
   <body>
+    <a href="http://localhost:10000/test">Go to test webpage</a>
     <h1>Ime: <%= ime %> <%= prezime %></h1>
     <ul>
       <% niza.forEach(grad => { %>
@@ -26,6 +27,16 @@
       </tr>
       <% }) %>
     </table>
-    <a href="http://localhost:10000/test">Go to test webpage</a>
+    <hr />
+    <h2>Add New Student</h2>
+    <form action="/" method="post">
+      <label for="ime">Ime:</label>
+      <input type="text" name="ime" id="ime" required /> <br />
+      <label for="prezime">Prezime:</label>
+      <input type="text" name="prezime" id="prezime" required /> <br />
+      <label for="prosek">Prosek:</label>
+      <input type="number" name="prosek" id="prosek" /> <br />
+      <input type="submit" value="Dodadi student" />
+    </form>
   </body>
 </html>

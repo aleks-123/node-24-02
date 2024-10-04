@@ -1,7 +1,9 @@
 const express = require('express');
-//! EJS (Embedded JavaScript Templateing)
+const formular = require('./controller/formular');
+
 const app = express();
 
+//! EJS (Embedded JavaScript Templateing)
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,12 +29,23 @@ app.get('/test', (req, res) => {
   res.render('test', testData);
 });
 
-app.get('/', (req, res) => {
-  res.render('index', data);
-});
+app.get('/', formular.getView);
+app.post('/', formular.postForm);
 
 const port = 10000;
 app.listen(port, (err) => {
   if (err) return console.log('Greska vo startuvanje na samata aplikacija');
   console.log(`Aplikacijata e uspesno startuvana ${port}`);
 });
+
+//! Zadaca za ovoj Chas
+//! Da se kreira tri stranici ili
+//! ruta / hompeage - kade sto kje homepage za holywood
+//! ruta akteri - kade sto kje se prikaze lista na akteri
+//! ruta filmovi - kade sto kje se prikaze lista od filmovi
+//! site ovie da se kenotekirani megju sebe
+//! homepage da ima navigacija za akteri i filmovi
+//! akteri da ima navigacija za homepage i fiolmovi
+//! filmovi da ima navigacija za akteri i homepage
+
+//! Da se kreirat c9vezba - so se novo
