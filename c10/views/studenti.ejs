@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studenti</title>
+    <link rel="stylesheet" href="global.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <table border="1" width="100%">
+      <tr>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Prosek</th>
+        <th>Brisenje</th>
+      </tr>
+      <% data.forEach((student, i) => { %>
+      <tr>
+        <td><%= student.ime %></td>
+        <td><%= student.prezime %></td>
+        <td><%= student.prosek %></td>
+        <td>
+          <a href="/brishi/<%=i  %>">Brishi</a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>

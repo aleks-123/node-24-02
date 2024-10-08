@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formular</title>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <form action="/form" method="post">
+      <input type="text" name="ime" placeholder="ime" /> <br />
+      <input type="text" name="prezime" placeholder="prezime" /> <br />
+      <input type="text" name="prosek" placeholder="prosek" /> <br />
+      <button type="submit">Zapishi nov student</button>
+    </form>
+  </body>
+</html>
